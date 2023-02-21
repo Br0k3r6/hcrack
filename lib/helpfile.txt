@@ -1,0 +1,40 @@
+--- Hcrack helpfile ---
+
+Available Formats:
+  INFO: When "NUM" is "----" then it is not available now.
+
+      NUM   | Name                           | Category
+  ==========+================================+================================
+      0000  | MD5                            | raw hash
+      0001  | MD4                            | raw hash
+      0002  | SHA256                         | raw hash
+      0003  | SHA512                         | raw hash
+      ----  | MD5($salt.md5($pass))          | [ salt + md5(pass) ]
+      ----  | MD5(md5($salt.$pass))          | [ md5(salt + pass) ]
+      ----  | MD5(md5($pass.$salt))          | [ md5(pass + salt) ]
+      ----  | MD5(md5($salt.$pass.$salt))    | [ md5(salt + pass + salt) ]
+      ----  | MD5(md5($salt.$pass.$pepper))  | [ md5(salt + pass + pepper) ]
+      ----  | MD5(md5($pass).$pepper))       | [ md5(pass) + salt ]
+
+How do you make a hashfile:
+    You can create hashfiles with following linux commands:
+    +=======================================================+
+    | touch hashfile.txt                                    |
+    | echo "< hash to crack>" >hashfile.txt                 |
+    +=======================================================+
+
+
+Hcrack Options:
+    [-h] | [--help]       | Shows this message.
+    [-f] | [--format]     | Specify the hash format. (number)
+    [-w] | [--wordlist]   | Specify the wordlist.
+    [-H] | [--hashfile]   | Specify the file that contains the hash.
+    [-v] | [--version]    | Shows current hcrack version.
+
+Hcrack Examples:
+    +=================================================================+
+    | Example no.1 - hcrack --format=0000 -w=wordlist.txt -H hash.txt |
+    | Example no.2 - hcrack --format=0001 -w=wordlist.txt -H hash.txt |
+    +=================================================================+
+
+--- Hcrack helpfile ---
